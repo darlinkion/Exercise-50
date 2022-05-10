@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 3812988901063221482}
   - component: {fileID: 697652835818631426}
   - component: {fileID: 2929589443270458845}
-  - component: {fileID: 7789493489061445102}
   - component: {fileID: 5775315124709048829}
   m_Layer: 0
   m_Name: Coin
@@ -101,18 +100,6 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.20625
---- !u!114 &7789493489061445102
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6730637713701760061}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 45369ebf17ebffb43bb572dcd2549697, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &5775315124709048829
 MonoBehaviour:
   m_ObjectHideFlags: 0

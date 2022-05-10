@@ -2,16 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(Movement))]
+
 public class SwitchAnimation : MonoBehaviour
 {
     private Animator _animator;
-    private Move _move;
+    private Movement _move;
     private string _speed;
 
     void Start()
     {
         _animator = GetComponent<Animator>();
-        _move = GetComponent<Move>();
+        _move = GetComponent<Movement>();
         _speed = "Speed";
     }
 

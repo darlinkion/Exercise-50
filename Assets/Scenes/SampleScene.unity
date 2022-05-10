@@ -876,7 +876,7 @@ MonoBehaviour:
   - {fileID: 619805272}
   - {fileID: 1918391657}
   - {fileID: 546769527}
-  _gameObject: {fileID: 6730637713701760061, guid: 9fb4fbb0dedc5ba40856f5693ab99fba, type: 3}
+  _tempCoin: {fileID: 5775315124709048829, guid: 9fb4fbb0dedc5ba40856f5693ab99fba, type: 3}
 --- !u!1001 &1270274273
 PrefabInstance:
   m_ObjectHideFlags: 0

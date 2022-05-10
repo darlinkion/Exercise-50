@@ -5,19 +5,19 @@ using UnityEngine;
 public class CoinSpawner : MonoBehaviour
 {
     [SerializeField] private Transform[] _points;
-    [SerializeField] private GameObject _gameObject; 
+    [SerializeField] private Coin _tempCoin;
 
-    void Start()
+    private void Start()
     {
-        if (_points.Length == 0 || _gameObject == null)
+        if (_points.Length == 0 || _tempCoin == null)
         {
             Debug.Log("No points or coin in script CoinSpawner");
         }
         else
         {
-            for(int i = 0; i < _points.Length; i++)
+            for (int i = 0; i < _points.Length; i++)
             {
-               Instantiate(_gameObject, _points[i].transform.position, Quaternion.identity);
+                Instantiate(_tempCoin, _points[i].transform.position, Quaternion.identity);
             }
         }
     }
