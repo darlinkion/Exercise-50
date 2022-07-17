@@ -29,6 +29,8 @@ public class Movement : MonoBehaviour
 
         CheckGround();
 
+        Turn();
+
         Vector2 movement = new Vector2(_deltaX, _rigidbody2D.velocity.y);
         _rigidbody2D.velocity = movement;
 
@@ -45,8 +47,8 @@ public class Movement : MonoBehaviour
         Vector3 max = _boxCollider2D.bounds.max;
         Vector3 min = _boxCollider2D.bounds.min;
 
-        Vector2 corner1 = new Vector2(max.x, min.y-.1f);
-        Vector2 corner2 = new Vector2(min.x, min.y-.2f);
+        Vector2 corner1 = new Vector2(max.x, min.y - .1f);
+        Vector2 corner2 = new Vector2(min.x, min.y - .2f);
 
         Collider2D hit = Physics2D.OverlapArea(corner1, corner2);
 
@@ -55,6 +57,15 @@ public class Movement : MonoBehaviour
         if (hit != null)
         {
             _isGrounded = true;
+        }
+    }
+
+    private void Turn()
+    {
+        if (!Mathf.Approximately(_deltaX, 0))
+        {
+            transform.localScale = new Vector3(Mathf.Abs(transform.localScale.x) *
+                Mathf.Sign(_deltaX), transform.localScale.y, transform.localScale.z);
         }
     }
 }

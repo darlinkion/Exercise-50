@@ -1,14 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Wallet : MonoBehaviour
 {
+    [SerializeField] private Text _source;
+
     private int _coins;
 
     private void Start()
     {
         _coins = 0;
+        _source.text = "Sroce: " + _coins;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -16,20 +20,13 @@ public class Wallet : MonoBehaviour
         if (collision.TryGetComponent<Coin>(out Coin coin))
         {
             _coins++;
-            Debug.Log("В кошельке " + _coins + " монет");
         }
 
-        if (collision.TryGetComponent<Enemy>(out Enemy enemy))
+        if ((collision.TryGetComponent<Enemy>(out Enemy enemy)) && _coins > 0)
         {
-            if (_coins > 0)
-            {
-                _coins--;
-                Debug.Log("Моб забрал монету, в кошельке осталось " + _coins + " монет");
-            }
-            else
-            {
-                Debug.Log("Мобу у Вас даже забрать нечего, у вас 0 монет");
-            }
+            _coins--;
         }
+
+        _source.text = "Sroce: " + _coins;
     }
 }

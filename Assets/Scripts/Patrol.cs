@@ -17,13 +17,13 @@ public class Patrol : MonoBehaviour
 
     void Update()
     {
-        transform.position = Vector3.MoveTowards(transform.position, _targetPosition.position,_speed*Time.deltaTime);
+        transform.position = Vector3.MoveTowards(transform.position, _targetPosition.position, _speed * Time.deltaTime);
 
-        if (Vector3.Distance(transform.position, _firstPosition.position)<1f)
+        if (Vector3.Distance(transform.position, _firstPosition.position) < 1f)
         {
             _targetPosition = _secondPosition;
         }
-        else if(Vector3.Distance(transform.position, _secondPosition.position) < 0.5f)
+        else if (Vector3.Distance(transform.position, _secondPosition.position) < 0.5f)
         {
             _targetPosition = _firstPosition;
         }
