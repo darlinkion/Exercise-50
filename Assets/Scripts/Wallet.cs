@@ -3,30 +3,25 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+[RequireComponent(typeof(Money))]
+
 public class Wallet : MonoBehaviour
 {
     [SerializeField] private Text _source;
 
+    private Money _money;
     private int _coins;
 
     private void Start()
     {
-        _coins = 0;
+        _money = GetComponent<Money>();
+        _coins = _money.Coins;
         _source.text = "Sroce: " + _coins;
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void FixedUpdate()
     {
-        if (collision.TryGetComponent<Coin>(out Coin coin))
-        {
-            _coins++;
-        }
-
-        if ((collision.TryGetComponent<Enemy>(out Enemy enemy)) && _coins > 0)
-        {
-            _coins--;
-        }
-
+        _coins = _money.Coins;
         _source.text = "Sroce: " + _coins;
     }
 }

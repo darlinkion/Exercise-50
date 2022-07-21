@@ -9,6 +9,7 @@ public class Movement : MonoBehaviour
 {
     [SerializeField] private float _speed;
     [SerializeField] private float _jumpForce;
+    [SerializeField] private float _deltaYOnGround;
 
     private BoxCollider2D _boxCollider2D;
     private Rigidbody2D _rigidbody2D;
@@ -17,13 +18,13 @@ public class Movement : MonoBehaviour
 
     public float DeltaX => _deltaX;
 
-    void Start()
+    private void Start()
     {
         _rigidbody2D = GetComponent<Rigidbody2D>();
         _boxCollider2D = GetComponent<BoxCollider2D>();
     }
 
-    void Update()
+    private void Update()
     {
         _deltaX = Input.GetAxis("Horizontal") * _speed;
 
@@ -47,8 +48,8 @@ public class Movement : MonoBehaviour
         Vector3 max = _boxCollider2D.bounds.max;
         Vector3 min = _boxCollider2D.bounds.min;
 
-        Vector2 corner1 = new Vector2(max.x, min.y - .1f);
-        Vector2 corner2 = new Vector2(min.x, min.y - .2f);
+        Vector2 corner1 = new Vector2(max.x, min.y- _deltaYOnGround);
+        Vector2 corner2 = new Vector2(min.x, min.y- _deltaYOnGround);
 
         Collider2D hit = Physics2D.OverlapArea(corner1, corner2);
 

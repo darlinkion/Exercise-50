@@ -9,16 +9,9 @@ public class CoinSpawner : MonoBehaviour
 
     private void Start()
     {
-        if (_points.Length == 0 || _tempCoin == null)
+        for (int i = 0; i < _points.Length; i++)
         {
-            Debug.Log("No points or coin in script CoinSpawner");
-        }
-        else
-        {
-            for (int i = 0; i < _points.Length; i++)
-            {
-                Instantiate(_tempCoin, _points[i].transform.position, Quaternion.identity);
-            }
+            Instantiate(_tempCoin, _points[i].transform.position, Quaternion.identity);
         }
     }
 }

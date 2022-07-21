@@ -3,22 +3,23 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(Movement))]
+[RequireComponent(typeof(Animation))]
 
 public class Animation : MonoBehaviour
 {
-    private const string _speed = "Speed";
+    private const string Speed = "Speed";
 
     private Animator _animator;
     private Movement _move;
 
-    void Start()
+    private void Start()
     {
         _animator = GetComponent<Animator>();
         _move = GetComponent<Movement>();
     }
 
-    void Update()
+    private void Update()
     {
-        _animator.SetFloat(_speed, Mathf.Abs(_move.DeltaX));
+        _animator.SetFloat(Speed, Mathf.Abs(_move.DeltaX));
     }
 }
